@@ -1,0 +1,29 @@
+@import "../../theme.scss";
+
+.app_navbar_container {
+  background-color: $pageBackground !important;
+  box-shadow: 0px 2px 11px 0px rgba(0, 0, 0, 0.75);
+
+  .nav_link_item {
+    color: red;
+    font-size: 15px;
+    font-weight: 400;
+    padding: 2px !important;
+    border-bottom: 1px solid transparent;
+
+    &:hover {
+      border-bottom: 1px solid $dark;
+    }
+  }
+
+  .global_search_container {
+    border: 1px solid $accentGray !important;
+    width: 250px !important;
+    background-color: $lightGray !important;
+    border-radius: 5px !important;
+    > input {
+      background-color: transparent !important;
+      font-size: 12px;
+    }
+  }
+}
