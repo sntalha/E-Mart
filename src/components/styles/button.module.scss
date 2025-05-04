@@ -1,0 +1,13 @@
+@import '../../theme.scss';
+
+.button_container{
+    width: 100%;
+    outline: none;
+    border: none;
+    background-color: $primaryColor;
+    color: $lightGray;
+    border-radius: 3px;
+    padding: 7px; 
+    margin-top: 15px;
+    margin-bottom: 15px;
+}

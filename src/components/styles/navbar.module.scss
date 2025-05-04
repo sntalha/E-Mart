@@ -15,15 +15,4 @@
       border-bottom: 1px solid $dark;
     }
   }
-
-  .global_search_container {
-    border: 1px solid $accentGray !important;
-    width: 250px !important;
-    background-color: $lightGray !important;
-    border-radius: 5px !important;
-    > input {
-      background-color: transparent !important;
-      font-size: 12px;
-    }
-  }
 }

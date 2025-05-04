@@ -1,0 +1,113 @@
+@import "../../theme.scss";
+
+.footer {
+  background-color: $dark;
+  color: $pageBackground;
+  padding: 40px 20px;
+  padding-bottom: 0px;
+}
+
+.container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: 30px;
+  max-width: 1200px;
+  margin: auto;
+}
+
+.column {
+  flex: 1 1 180px;
+  min-width: 160px;
+
+  h3,
+  h4 {
+    font-weight: 600;
+    margin-bottom: 10px;
+  }
+
+  p {
+    margin: 6px 0;
+    font-size: 14px;
+    color: $lightGray;
+  }
+}
+
+.subscribeTitle {
+  font-weight: bold;
+  margin-top: 10px;
+}
+
+.emailInputWrapper {
+  display: flex;
+  margin-top: 10px;
+  border: 1px solid $lightGray;
+  border-radius: 3px;
+  
+
+  input {
+    background-color: $dark;
+    color: $lightGray;
+    flex: 1;
+    padding: 8px;
+    border: none;
+    border-radius: 3px 0 0 3px;
+    font-size: 14px;
+  }
+
+  img {
+    background-color: $dark;
+    color: $lightGray;
+    border: none;
+    padding: 8px 12px;
+    margin-left: -7px;
+    font-size: 16px;
+    border-radius: 0 3px 3px 0;
+    cursor: pointer;
+  }
+}
+
+.qrWrapper {
+  display: flex;
+  gap: 10px;
+  align-items: flex-start;
+
+  img {
+    width: 80px;
+    height: auto;
+  }
+
+  .storeButtons {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+
+    img {
+      width: 100px;
+      height: auto;
+    }
+  }
+}
+
+.socialIcons {
+  display: flex;
+  gap: 10px;
+  margin-top: 10px;
+
+  svg {
+    font-size: 18px;
+    cursor: pointer;
+    transition: color 0.2s;
+
+    &:hover {
+      color: $darkGray;
+    }
+  }
+}
+
+.copyright_container {
+  background-color: $dark;
+  color: $darkGray;
+  text-align: center;
+  padding: 10px;
+}

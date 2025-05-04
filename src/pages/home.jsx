@@ -1,13 +1,10 @@
 import React from 'react'
-import { TopBar } from '../components/TopBar'
-import { Navbar } from '../components/Navbar'
+import { PageLayout } from '../components/PageLayout'
 
 export const Home = () => {
   return (
-    <>
-    <TopBar></TopBar>
-    <Navbar></Navbar>
+    <PageLayout>
     <div>Home</div>
-    </>
+    </PageLayout>
   )
 }
