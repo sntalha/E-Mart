@@ -4,8 +4,15 @@ import styles from './styles/navbar.module.scss'
 import cartIcon from '../assets/icons/cart.svg'
 import { SiderBar } from './SiderBar'
 import { Search } from './Search'
+import { useDispatch, useSelector } from 'react-redux'
+import { removeUser } from '../redux/features/user-slice'
 
 export const Navbar = () => {
+    const isLogin = useSelector((state) => state.user.isLogin)
+    const dispatch = useDispatch()
+    const signOut = () => {
+        dispatch(removeUser())
+    }
     return (
         <>
         <SiderBar></SiderBar>
@@ -26,9 +33,14 @@ export const Navbar = () => {
                         <li className={`nav-item ${styles.nav_link_item}`}>
                             <NavLink to="/contact" className="nav-link active">Contact Us</NavLink>
                         </li>
+                        { isLogin ?
+                        <li className={`nav-item ${styles.nav_link_item}`}>
+                            <NavLink onClick={signOut} className="nav-link active">Sign Out</NavLink>
+                        </li>
+                        :
                         <li className={`nav-item ${styles.nav_link_item}`}>
                             <NavLink to="/signup" className="nav-link active">Sign Up</NavLink>
-                        </li>
+                        </li>}
                     </ul>
                     <form className={`d-flex`} role="search">
                         <Search></Search>

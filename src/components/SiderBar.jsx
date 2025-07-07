@@ -3,8 +3,15 @@ import styles from './styles/sidebar.module.scss'
 import { NavLink } from 'react-router-dom'
 import { Search } from './Search'
 import cartIcon from '../assets/icons/cart.svg'
+import { useDispatch, useSelector } from 'react-redux'
+import { removeUser } from '../redux/features/user-slice'
 
 export const SiderBar = () => {
+    const isLogin = useSelector((state) => state.user.isLogin)
+    const dispatch = useDispatch()
+    const signOut = () => {
+        dispatch(removeUser())
+    }
     return (
         <div>
             <div className="offcanvas offcanvas-end w-auto" data-bs-scroll="true" tabindex="-1" id="offcanvasWithBothOptions" aria-labelledby="offcanvasWithBothOptionsLabel">
@@ -25,9 +32,13 @@ export const SiderBar = () => {
                         <li className={`nav-item`}>
                             <NavLink to="/contact" className={`nav-link active ${styles.nav_link_item}`} data-bs-dismiss="offcanvas">Contact Us</NavLink>
                         </li>
+                        {isLogin ?
                         <li className={`nav-item`}>
-                            <NavLink to="/signup" className={`nav-link active ${styles.nav_link_item}`} data-bs-dismiss="offcanvas">Sign Up</NavLink>
+                            <NavLink onClick={signOut} className={`nav-link active ${styles.nav_link_item}`} data-bs-dismiss="offcanvas">Sign Out</NavLink>
                         </li>
+                        : <li className={`nav-item`}>
+                            <NavLink to="/signup" className={`nav-link active ${styles.nav_link_item}`} data-bs-dismiss="offcanvas">Sign Up</NavLink>
+                        </li>}
                         <li className={`nav-item d-flex justify-content-start gap-1`}>
                             <NavLink to="/cart" className={`nav-link mt-1 active ${styles.nav_link_item}`} data-bs-dismiss="offcanvas">My Cart</NavLink>
                             <img className="ps-100" src={cartIcon} alt="cart icon" />
