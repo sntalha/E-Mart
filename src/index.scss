@@ -1,3 +1,4 @@
+@import './theme.scss';
 .form-control:focus{
     background-color: transparent !important;
     border-color: none !important;
@@ -13,4 +14,14 @@
 .title{
     font-size: 17px;
     font-weight: 500;    
+}
+.banner-slider {
+    .swiper-pagination{
+        .swiper-pagination-bullet-active{
+            width: 10px;
+            height: 10px;
+            background-color: $primaryColor;
+            border: 1px solid white;
+        }
+    }
 }
