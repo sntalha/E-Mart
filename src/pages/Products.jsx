@@ -4,7 +4,7 @@ import { SectHeader } from '../components/SectHeader'
 import { ProductCard } from '../components/ProductCard'
 import dummyData from '../services/dummy.json'
 
-export const Products = () => {
+const Products = () => {
     return (
         <PageLayout>
             <div className="container">
@@ -20,3 +20,5 @@ export const Products = () => {
         </PageLayout>
     )
 }
+
+export default Products;

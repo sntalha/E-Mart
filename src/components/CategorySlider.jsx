@@ -19,6 +19,7 @@ import c6 from "../assets/icons/c6.png";
 import { CategoryCard } from './CategoryCard';
 import { FaArrowLeft, FaArrowRight } from 'react-icons/fa';
 import styles from "./styles/slider.module.scss";
+
 const categories = [
     { image: c1, title: "Phones" },
     { image: c2, title: "Computers" },

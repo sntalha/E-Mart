@@ -2,9 +2,9 @@ import React from 'react'
 import styles from './styles/sidebar.module.scss'
 import { NavLink } from 'react-router-dom'
 import { Search } from './Search'
-import cartIcon from '../assets/icons/cart.svg'
 import { useDispatch, useSelector } from 'react-redux'
 import { removeUser } from '../redux/features/user-slice'
+import Cart from './Cart'
 
 export const SiderBar = () => {
     const isLogin = useSelector((state) => state.user.isLogin)
@@ -40,8 +40,8 @@ export const SiderBar = () => {
                             <NavLink to="/signup" className={`nav-link active ${styles.nav_link_item}`} data-bs-dismiss="offcanvas">Sign Up</NavLink>
                         </li>}
                         <li className={`nav-item d-flex justify-content-start gap-1`}>
-                            <NavLink to="/cart" className={`nav-link mt-1 active ${styles.nav_link_item}`} data-bs-dismiss="offcanvas">My Cart</NavLink>
-                            <img className="ps-100" src={cartIcon} alt="cart icon" />
+                            <NavLink to="/checkout" className={`nav-link mt-1 active ${styles.nav_link_item}`} data-bs-dismiss="offcanvas">My Cart</NavLink>
+                            <Cart></Cart>
                         </li>
                     </ul>
                 </div>

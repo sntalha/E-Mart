@@ -24,3 +24,9 @@
     background-color: $lightGray;
     border-radius   : 50%;
 }
+
+.product_other_images {
+    height    : 125px;
+    width     : 145px;
+    object-fit: contain;
+}

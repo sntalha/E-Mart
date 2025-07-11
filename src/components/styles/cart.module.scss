@@ -1,0 +1,23 @@
+@import '../../theme.scss';
+
+.shopping_cart_icon {
+    width   : 25px;
+    cursor  : pointer;
+    position: relative;
+    z-index: 2;
+
+    .cart_products_quantity {
+        position        : absolute;
+        left            : 7px;
+        top             : -10px;
+        height          : 22px;
+        width           : 22px;
+        border-radius   : 50%;
+        text-align      : center;
+        line-height     : 22px;
+        background-color: $primaryColor;
+        font-size       : 11px;
+        color: $pageBackground;
+        z-index: -1;
+    }
+}

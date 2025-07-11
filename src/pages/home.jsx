@@ -10,7 +10,7 @@ import { PrimaryButton } from '../components/PrimaryButton'
 import { useNavigate } from 'react-router-dom'
 import fimg from '../assets/images/featureImg.png'
 
-export const Home = () => {
+const Home = () => {
   const navigate = useNavigate();
   return (
     <PageLayout>
@@ -36,3 +36,5 @@ export const Home = () => {
     </PageLayout>
   )
 }
+
+export default Home;

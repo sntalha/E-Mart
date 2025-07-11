@@ -1,11 +1,11 @@
 import React from 'react'
 import { NavLink } from 'react-router-dom'
 import styles from './styles/navbar.module.scss'
-import cartIcon from '../assets/icons/cart.svg'
 import { SiderBar } from './SiderBar'
 import { Search } from './Search'
 import { useDispatch, useSelector } from 'react-redux'
 import { removeUser } from '../redux/features/user-slice'
+import Cart from './Cart'
 
 export const Navbar = () => {
     const isLogin = useSelector((state) => state.user.isLogin)
@@ -44,7 +44,7 @@ export const Navbar = () => {
                     </ul>
                     <form className={`d-flex`} role="search">
                         <Search></Search>
-                        <img src={cartIcon} alt="cart icon" />
+                        <Cart></Cart>
                     </form>
                 </div>
             </div>

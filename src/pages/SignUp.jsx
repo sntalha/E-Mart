@@ -3,12 +3,12 @@ import { AuthLayout } from '../components/AuthLayout'
 import { TextInput } from '../components/TextInput'
 import { Link, useNavigate } from 'react-router-dom'
 import { PrimaryButton } from '../components/PrimaryButton'
-import { helpers } from '../services/helpers'
+import { Helpers } from '../services/helpers'
 import { useDispatch } from 'react-redux'
 import { addUser } from '../redux/features/user-slice'
 import axios from 'axios'
 
-export const SignUp = () => {
+const SignUp = () => {
   const [name, setName] = useState("")
   const [email, setEmail] = useState("")
   const [password, setPassword] = useState("")
@@ -21,13 +21,13 @@ export const SignUp = () => {
   const handleSubmit = async (e) => {
     e.preventDefault()
     let emailError, passwordError, nameError = ''
-    if (!helpers.validateEmail(email)) {
+    if (!Helpers.validateEmail(email)) {
       emailError = 'Invalid email'
     }
-    if (!helpers.validatePassword(password)) {
+    if (!Helpers.validatePassword(password)) {
       passwordError = 'Password must be at least 8 characters long'
     }
-    if (!helpers.validateName(name)) {
+    if (!Helpers.validateName(name)) {
       nameError = 'Name must be at least 2 characters long'
     }
     if (emailError || passwordError || nameError) {
@@ -71,3 +71,5 @@ export const SignUp = () => {
     </AuthLayout>
   )
 }
+
+export default SignUp
