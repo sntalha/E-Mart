@@ -9,6 +9,10 @@ import { ProductCard } from '../components/ProductCard'
 import { PrimaryButton } from '../components/PrimaryButton'
 import { useNavigate } from 'react-router-dom'
 import fimg from '../assets/images/featureImg.png'
+import { ServiceCard } from '../components/ServiceCard'
+import s1 from '../assets/icons/s1.png'
+import s2 from '../assets/icons/s2.png'
+import s3 from '../assets/icons/s3.png'
 
 const Home = () => {
   const navigate = useNavigate();
@@ -28,10 +32,15 @@ const Home = () => {
             </div>
           ))}
         </div>
-        <div style={{width:200,textAlign:"center",margin:"20px auto"}}>
-          <PrimaryButton onClick={()=>{navigate("/products")}}>View All Products</PrimaryButton>
+        <div style={{ width: 200, textAlign: "center", margin: "20px auto" }}>
+          <PrimaryButton onClick={() => { navigate("/products") }}>View All Products</PrimaryButton>
         </div>
         <img src={fimg} alt="Feature Image" width={"100%"} className='mb-5' />
+        <div className='d-flex flex-wrap justify-content-center justify-content-md-between gap-3 ps-5 pe-5 mb-5 mt-3'>
+          <ServiceCard props={{ image: s1, title: "Free And Fast Delivery", description: "Free delivery for all orders over $140" }} />
+          <ServiceCard props={{ image: s2, title: "24/7 Customer Service", description: "Friendly 24/7 customer support" }} />
+          <ServiceCard props={{ image: s3, title: "Money Back Guarantee", description: "We return money within 30 days" }} />
+        </div>
       </div>
     </PageLayout>
   )

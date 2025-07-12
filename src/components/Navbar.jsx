@@ -18,7 +18,7 @@ export const Navbar = () => {
         <SiderBar></SiderBar>
         <nav className={`navbar navbar-expand-lg ${styles.app_navbar_container}`}>
             <div className="container">
-                <a className="navbar-brand fw-normal" href="#">E-Mart</a>
+                <a className="navbar-brand fw-bold text-danger" href="#">E-Mart</a>
                 <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                     <span className="navbar-toggler-icon" data-bs-toggle="offcanvas" data-bs-target="#offcanvasWithBothOptions"></span>
                 </button>

@@ -1,25 +1,27 @@
 import React from 'react'
 import styles from '../pages/styles/checkout.module.scss'
-import pc1 from "../assets/images/pc1.png"
 import { QuantityCounter } from './QuantityCounter'
 import cross from "../assets/icons/crossIcon.png"
+import { useShoppingCart } from '../hooks/useShoppingCart'
+import { Helpers } from '../services/helpers'
 
-export const CartItem = () => {
+export const CartItem = ({data}) => {
+    const { addProduct, decreaseQuantity, removeProduct } = useShoppingCart();
     return (
         <tr className={`${styles.table_row}`}>
             <td>
                 <div className={`${styles.product_cell}`}>
                     <div className={`${styles.img_container}`}>
-                        <img className={`${styles.product_img}`} src={pc1} alt="product" />
-                        <img className={`${styles.cross_icon}`} src={cross} alt="cross" />
+                        <img className={`${styles.product_img}`} src={data?.product.images[0]} alt="product" />
+                        <img className={`${styles.cross_icon}`} onClick={()=>removeProduct(data?.product)} src={cross} alt="cross" />
                     </div>
-                    <p>LCD Monitor</p>
+                    <p>{data?.product.name}</p>
                 </div>
             </td>
-            <td>$10.00</td>
+            <td>{Helpers.priceFormatter(data?.product.price)}</td>
             <td>
-                <QuantityCounter small></QuantityCounter>
+                <QuantityCounter  small qty={data?.quantity} onIncrement={() => {addProduct(data?.product)}} onDecrement={() => {decreaseQuantity(data?.product)}}></QuantityCounter>
             </td>
-            <td>$10.00</td>
+            <td>{Helpers.priceFormatter(data?.product.price * data?.quantity)}</td>
         </tr>)
 }

@@ -1,13 +1,17 @@
 @import "../../theme.scss";
 
+
 .app_navbar_container {
   background-color: $pageBackground !important;
   box-shadow: 0px 2px 11px 0px rgba(0, 0, 0, 0.75);
+  position: sticky;
+  top: 0;
+  z-index: 1050;
 
   .nav_link_item {
     color: red;
     font-size: 15px;
-    font-weight: 400;
+    font-weight: 600;
     padding: 2px !important;
     border-bottom: 1px solid transparent;
 

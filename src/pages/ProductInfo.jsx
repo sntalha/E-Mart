@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import { PageLayout } from '../components/PageLayout'
 import { SectHeader } from '../components/SectHeader'
 import ProductSlider from '../components/ProductSlider'
@@ -13,9 +13,17 @@ import { QuantityCounter } from '../components/QuantityCounter'
 import ShippingCard from '../components/ShippingCard'
 import deliveryIcon from '../assets/icons/icon-delivery.svg'
 import returnIcon from '../assets/icons/icon-return.svg'
+import { useShoppingCart } from '../hooks/useShoppingCart'
 
 const ProductInfo = () => {
+    const [quantity, setQuantity] = useState(0);
     const [activeColor, setActiveColor] = useState(singleProduct.colors?.[0] ?? null);
+    const { addProduct, decreaseQuantity, getProductQuantity } = useShoppingCart();
+
+    useEffect(() => {
+        const q = getProductQuantity(singleProduct.id);
+        setQuantity(q);
+    }, [getProductQuantity, addProduct, decreaseQuantity])
 
     return (
         <PageLayout>
@@ -47,7 +55,8 @@ const ProductInfo = () => {
                                     </div>
                                 </div>
                                 <div className={`${styles.product_buy_container} d-flex gap-4 align-items-center`}>
-                                    <div><QuantityCounter></QuantityCounter></div>
+                                    <div>{quantity > 0 ? <QuantityCounter qty={quantity} onIncrement={() => addProduct(singleProduct)} onDecrement={() => decreaseQuantity(singleProduct)}></QuantityCounter>
+                                        : <PrimaryButton onClick={() => addProduct(singleProduct)}>Add to Cart</PrimaryButton>}</div>
                                     <div><PrimaryButton onClick={() => { }}>Buy Now</PrimaryButton></div>
                                 </div>
                                 <div className={`${styles.product_shipping_container} d-flex flex-column my-5`}>
